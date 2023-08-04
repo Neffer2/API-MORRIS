@@ -8,8 +8,8 @@ use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use App\Models\Modulo1;
 use App\Models\Modulo2;
-// use App\Models\Modulo3;
-// use App\Models\Modulo4;
+use App\Models\Modulo3;
+use App\Models\Modulo4;
 
 class ApiController extends Controller
 {
@@ -50,15 +50,15 @@ class ApiController extends Controller
     } 
 
     public function insertM1 (Request $request){
-        $modulo1 = new Modulo1;
-        $modulo1->marca = $request->marca;
-        $modulo1->ciudad = $request->ciudad;
-        $modulo1->pdv = $request->pdv;
-        $modulo1->mes = $request->mes;
-        $modulo1->semana = $request->semana;
-        $modulo1->selfiePDV = $request->selfiePDV;
-        $modulo1->foto_fachada = $request->foto_fachada;
-        $modulo1->save();
+        $modulo = new Modulo1;
+        $modulo->marca = $request->marca;
+        $modulo->ciudad = $request->ciudad;
+        $modulo->pdv = $request->pdv;
+        $modulo->mes = $request->mes;
+        $modulo->semana = $request->semana;
+        $modulo->selfiePDV = $request->selfiePDV;
+        $modulo->foto_fachada = $request->foto_fachada;
+        $modulo->save();
 
         $response = ['status' => 'success', 'msg' => 'Datos guardados exitosamente'];    
         return response()->json($modulo1);
@@ -67,17 +67,60 @@ class ApiController extends Controller
     public function insertM2 (Request $request){
         $data = json_decode($request->getContent());
 
-        return response()->json($data);
+        foreach ($data as $item){
+            $modulo2 = new Modulo2;
 
-        $modulo2 = new Modulo2;
-        $modulo2->user_id = 1;
-        $modulo2->marca = $data->marca;
-        $modulo2->num_abordadas = $data->num_abordadas;
-        $modulo2->num_ventas = $data->num_ventas;
-        $modulo2->tipo_producto = $data->tipo_producto;
-        $modulo2->num_ventas_competencia = $data->num_ventas_competencia;
-        $modulo2->presentacion = $data->presentacion;
-        $modulo2->save();
+            $modulo2->user_id = 1;
+            $modulo2->marca = $item->marca;
+            $modulo2->num_abordadas = $item->num_abordadas;
+            $modulo2->num_ventas = $item->num_ventas;
+            $modulo2->tipo_producto = $item->tipo_producto;
+            $modulo2->num_ventas_competencia = $item->num_ventas_competencia;
+            $modulo2->presentacion = $item->presentacion;
+
+            $modulo2->save();
+        }
+
+
+        $response = ['status' => 'success', 'msg' => 'Datos guardados exitosamente'];    
+        return response()->json($response);
+    }
+
+    public function insertM3 (Request $request){
+        $data = json_decode($request->getContent());
+
+        foreach ($data as $item){
+            $modulo = new Modulo3;
+
+            $modulo->user_id = 1;
+            $modulo->visibilidad = $item->visibilidad;
+            $modulo->tipo_visibilidad = $item->tipo_visibilidad;
+            $modulo->visibilidad_competencia = $item->visibilidad_competencia;
+            $modulo->tipo_visibilidad_competencia = $item->tipo_visibilidad_competencia;
+            $modulo->foto_visibilidad_marca = $item->foto_visibilidad_marca;
+            $modulo->foto_visibilidad_competencia = $item->foto_visibilidad_competencia;
+            
+            $modulo->save();
+        }
+
+        $response = ['status' => 'success', 'msg' => 'Datos guardados exitosamente'];    
+        return response()->json($response);
+    }
+
+    public function insertM4 (Request $request){
+        $data = json_decode($request->getContent());
+
+        foreach ($data as $item){
+            $modulo = new Modulo4;
+
+            $modulo->user_id = 1;
+            $modulo->presente = $item->presente;
+            $modulo->inv_marca = $item->inv_marca;
+            $modulo->agotados_marca = $item->agotados_marca;
+
+            $modulo->save();
+        }
+
 
         $response = ['status' => 'success', 'msg' => 'Datos guardados exitosamente'];    
         return response()->json($response);
