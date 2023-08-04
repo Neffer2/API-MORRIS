@@ -8,9 +8,9 @@ use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use App\Models\Modulo1;
 use App\Models\Modulo2;
-use App\Models\Modulo3;
+use App\Models\Modulo3; 
 use App\Models\Modulo4;
-
+ 
 class ApiController extends Controller
 {
     public function users(Request $request){
@@ -50,35 +50,40 @@ class ApiController extends Controller
     } 
 
     public function insertM1 (Request $request){
-        $modulo = new Modulo1;
-        $modulo->marca = $request->marca;
-        $modulo->ciudad = $request->ciudad;
-        $modulo->pdv = $request->pdv;
-        $modulo->mes = $request->mes;
-        $modulo->semana = $request->semana;
-        $modulo->selfiePDV = $request->selfiePDV;
-        $modulo->foto_fachada = $request->foto_fachada;
-        $modulo->save();
+        $data = json_decode($request->getContent());
+
+        foreach ($data as $item){
+            $modulo = new Modulo1;
+            $modulo->user_id = 1;
+            $modulo->marca = $item->marca;
+            $modulo->ciudad = $item->ciudad;
+            $modulo->pdv = $item->pdv;
+            $modulo->mes = $item->mes;
+            $modulo->semana = $item->semana;
+            $modulo->selfiePDV = $item->selfiePDV;
+            $modulo->foto_fachada = $item->fotoFachada;
+            $modulo->save();            
+        }
 
         $response = ['status' => 'success', 'msg' => 'Datos guardados exitosamente'];    
-        return response()->json($modulo1);
+        return response()->json($response);
     }
 
     public function insertM2 (Request $request){
         $data = json_decode($request->getContent());
 
         foreach ($data as $item){
-            $modulo2 = new Modulo2;
+            $modulo = new Modulo2;
 
-            $modulo2->user_id = 1;
-            $modulo2->marca = $item->marca;
-            $modulo2->num_abordadas = $item->num_abordadas;
-            $modulo2->num_ventas = $item->num_ventas;
-            $modulo2->tipo_producto = $item->tipo_producto;
-            $modulo2->num_ventas_competencia = $item->num_ventas_competencia;
-            $modulo2->presentacion = $item->presentacion;
+            $modulo->user_id = 1;
+            $modulo->marca = $item->marca;
+            $modulo->num_abordadas = $item->num_abordadas;
+            $modulo->num_ventas = $item->num_ventas;
+            $modulo->tipo_producto = $item->tipo_producto;
+            $modulo->num_ventas_competencia = $item->num_ventas_competencia;
+            $modulo->presentacion = $item->presentacion;
 
-            $modulo2->save();
+            $modulo->save();
         }
 
 
