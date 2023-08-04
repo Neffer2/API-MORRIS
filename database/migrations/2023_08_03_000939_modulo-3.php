@@ -13,12 +13,13 @@ return new class extends Migration
     {
         Schema::create('modulo-3', function (Blueprint $table) {
             $table->id();
+            $table->string('user_id')->nullable();
             $table->string('visibilidad')->nullable();
             $table->string('tipo_visibilidad')->nullable();
             $table->string('visibilidad_competencia')->nullable();
             $table->string('tipo_visibilidad_competencia')->nullable();
-            $table->string('foto_visibilidad_marca')->nullable();
-            $table->string('foto_visibilidad_competencia')->nullable();
+            $table->longText('foto_visibilidad_marca')->nullable();
+            $table->longText('foto_visibilidad_competencia')->nullable();
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('modulo-3');
     }
 };

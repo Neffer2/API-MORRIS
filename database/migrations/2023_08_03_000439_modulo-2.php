@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('modulo-2', function (Blueprint $table) {
             $table->id();
+            $table->string('user_id')->nullable();
             $table->string('marca')->nullable();
             $table->string('num_abordadas')->nullable();
             $table->string('num_ventas')->nullable();
@@ -28,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('modulo-2');
     }
 };

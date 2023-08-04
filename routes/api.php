@@ -22,3 +22,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('/users', [ApiController::class, 'users']);
 Route::post('/login', [ApiController::class, 'login']);
+
+// MODULES
+Route::post('/insertM1', [ApiController::class, 'insertM1']);
+Route::post('/insertM2', [ApiController::class, 'insertM2']);

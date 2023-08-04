@@ -13,16 +13,15 @@ return new class extends Migration
     {
         Schema::create('modulo-1', function (Blueprint $table) {
             $table->id();
+            $table->string('user_id')->nullable();
             $table->string('marca')->nullable();
             $table->string('ciudad')->nullable();
-            $table->string('user_id')->nullable();
-            $table->string('nom_pdv')->nullable();
             $table->string('pdv')->nullable();
             $table->string('mes')->nullable();
             $table->string('semana')->nullable();
             $table->string('novedades')->nullable();
-            $table->string('selfiePDV')->nullable();
-            $table->string('foto_fachada')->nullable();        
+            $table->longText('selfiePDV')->nullable();
+            $table->longText('foto_fachada')->nullable();        
             $table->timestamps();
         });
     }
@@ -32,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('modulo-1');
     }
 };
