@@ -128,12 +128,43 @@ class ApiController extends Controller
 
         foreach ($data as $item){
             $modulo = new Modulo4;
-
             $modulo->user_id = 1;
             $modulo->presente = $item->presente;
-            $modulo->inv_marca = $item->inv_marca;
-            $modulo->agotados_marca = $item->agotados_marca;
-
+            $modulo->LMBLUE = $item->LMBLUE;
+            $modulo->LMPURPLE = $item->LMPURPLE;
+            $modulo->presente = $item->presente;
+            $modulo->LMBLUE = $item->LMBLUE;
+            $modulo->LMPURPLE = $item->LMPURPLE; 
+            $modulo->LMRED = $item->LMRED;
+            $modulo->LMSILVER = $item->LMSILVER;
+            $modulo->LMWARREGO = $item->LMWARREGO;
+            $modulo->LUCKYSTRIKEBLUE10 = $item->LUCKYSTRIKEBLUE10;
+            $modulo->LUCKYSTRIKEBLUE20 = $item->LUCKYSTRIKEBLUE20;
+            $modulo->LUCKYSTRIKEFEST10 = $item->LUCKYSTRIKEFEST10;
+            $modulo->LUCKYSTRIKEFEST20 = $item->LUCKYSTRIKEFEST20;
+            $modulo->LUCKYSTRIKEGIN10 = $item->LUCKYSTRIKEGIN10;
+            $modulo->LUCKYSTRIKEGIN20 = $item->LUCKYSTRIKEGIN20;
+            $modulo->LUCKYSTRIKEMOJITO10 = $item->LUCKYSTRIKEMOJITO10;
+            $modulo->LUCKYSTRIKEMOJITO20 = $item->LUCKYSTRIKEMOJITO20;
+            $modulo->ROTHMANSAZUL10 = $item->ROTHMANSAZUL10;
+            $modulo->ROTHMANSAZUL20 = $item->ROTHMANSAZUL20;
+            $modulo->ROTHMANSVERDE10 = $item->ROTHMANSVERDE10;
+            $modulo->ROTHMANSVERDE20 = $item->ROTHMANSVERDE20;
+            $modulo->ROTHMANSBLANCO10 = $item->ROTHMANSBLANCO10;
+            $modulo->ROTHMANSBLANCO20 = $item->ROTHMANSBLANCO20;
+            $modulo->ROTHMANSPURPLE10 = $item->ROTHMANSPURPLE10;
+            $modulo->ROTHMANSPURPLE20 = $item->ROTHMANSPURPLE20;
+            $modulo->STARLITE10 = $item->STARLITE10;
+            $modulo->STARLITE20 = $item->STARLITE20;
+            $modulo->MALBOROROJO = $item->MALBOROROJO;
+            $modulo->MALBOROVERDE = $item->MALBOROVERDE;
+            $modulo->MALBOROAZUL = $item->MALBOROAZUL;
+            $modulo->CHESTERFIELDPURPLE10 = $item->CHESTERFIELDPURPLE10;
+            $modulo->CHESTERFIELDPURPLE20 = $item->CHESTERFIELDPURPLE20;
+            $modulo->CHESTERFIELDGREEN10 = $item->CHESTERFIELDGREEN10;
+            $modulo->CHESTERFIELDGREEN20 = $item->CHESTERFIELDGREEN20;
+            $modulo->CHESTERFIELDBLUE10 = $item->CHESTERFIELDBLUE10;
+            $modulo->CHESTERFIELDBLUE20 = $item->CHESTERFIELDBLUE20;
             $modulo->save();
         }
 
