@@ -16,13 +16,16 @@ return new class extends Migration
             $table->string('user_id')->nullable();
             $table->string('marca')->nullable();
             $table->string('ciudad')->nullable();
-            $table->string('pdv')->nullable();
+            $table->text('pdv')->nullable();
             $table->string('mes')->nullable();
             $table->string('semana')->nullable();
             $table->string('novedades')->nullable();
             $table->longText('selfiePDV')->nullable();
-            $table->longText('foto_fachada')->nullable();        
-            $table->timestamps();
+            $table->longText('foto_fachada')->nullable();       
+            $table->date('fechaVisita')->nullable();
+            $table->string('estrato')->nullable();
+            $table->string('barrio')->nullable();
+            $table->timestamps(); 
         });
     }
 

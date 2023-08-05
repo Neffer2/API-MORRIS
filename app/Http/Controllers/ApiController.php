@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use App\Models\Modulo1;
 use App\Models\Modulo2;
-use App\Models\Modulo3; 
+use App\Models\Modulo3;  
 use App\Models\Modulo4;
  
 class ApiController extends Controller
@@ -44,8 +44,6 @@ class ApiController extends Controller
             $response['msg'] = "Usuario no encontrado.";
         }
 
-        // 1|sHygm15xUK9Pcog52kDqlG9fs0utqIW2TJR2tLsU
-
         return response()->json($response);
     } 
 
@@ -53,16 +51,26 @@ class ApiController extends Controller
         $data = json_decode($request->getContent());
 
         foreach ($data as $item){
-            $modulo = new Modulo1;
-            $modulo->user_id = 1;
-            $modulo->marca = $item->marca;
-            $modulo->ciudad = $item->ciudad;
-            $modulo->pdv = $item->pdv;
-            $modulo->mes = $item->mes;
-            $modulo->semana = $item->semana;
-            $modulo->selfiePDV = $item->selfiePDV;
-            $modulo->foto_fachada = $item->fotoFachada;
-            $modulo->save();            
+            if (!$item->novedades){
+                $modulo = new Modulo1;
+                $modulo->user_id = 1;
+                $modulo->marca = $item->marca;
+                $modulo->ciudad = $item->ciudad;
+                $modulo->pdv = $item->pdv;
+                $modulo->mes = $item->mes;
+                $modulo->semana = $item->semana;
+                $modulo->selfiePDV = $item->selfiePDV;
+                $modulo->foto_fachada = $item->fotoFachada;
+                $modulo->fechaVisita = $item->fechaVisita;
+                $modulo->estrato = $item->estrato;
+                $modulo->barrio = $item->barrio;
+                $modulo->save();                          
+            }else {
+                $modulo = new Modulo1;
+                $modulo->user_id = 1;                
+                $modulo->novedades = $item->novedades;
+                $modulo->save();                          
+            }
         }
 
         $response = ['status' => 'success', 'msg' => 'Datos guardados exitosamente'];    
@@ -83,6 +91,9 @@ class ApiController extends Controller
             $modulo->num_ventas_competencia = $item->num_ventas_competencia;
             $modulo->presentacion = $item->presentacion;
 
+            $modulo->gifus = $item->gifus;
+            $modulo->genero = $item->genero;
+            $modulo->edad = $item->edad; 
             $modulo->save();
         }
 

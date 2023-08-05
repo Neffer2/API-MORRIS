@@ -20,6 +20,10 @@ return new class extends Migration
             $table->string('tipo_producto')->nullable();
             $table->string('num_ventas_competencia')->nullable();
             $table->string('presentacion')->nullable();
+
+            $table->string('gifus')->nullable();
+            $table->string('genero')->nullable();
+            $table->string('edad')->nullable();            
             $table->timestamps();
         });
     }
