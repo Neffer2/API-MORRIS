@@ -10,6 +10,7 @@ use App\Models\Modulo1;
 use App\Models\Modulo2;
 use App\Models\Modulo3;  
 use App\Models\Modulo4;
+use App\Models\Modulo5;
  
 class ApiController extends Controller
 {
@@ -21,7 +22,6 @@ class ApiController extends Controller
     public function login (Request $request){
 
         $data = json_decode($request->getContent());
-        return response()->json($data);
 
         $request->validate([
             'email' => 'required|email',
@@ -38,9 +38,11 @@ class ApiController extends Controller
                 $response['status'] = 1;
                 $response['msg'] = $token->plainTextToken;
             }else{
+                $response['status'] = 0;
                 $response['msg'] = "Credenciales incorrectas.";
             }
         }else{
+            $response['status'] = 0;
             $response['msg'] = "Usuario no encontrado.";
         }
 
@@ -168,6 +170,23 @@ class ApiController extends Controller
             $modulo->save();
         }
 
+
+        $response = ['status' => 'success', 'msg' => 'Datos guardados exitosamente'];    
+        return response()->json($response);
+    }
+
+        public function insertM5 (Request $request){
+        $data = json_decode($request->getContent());
+
+        foreach ($data as $item){
+            $modulo = new Modulo5;
+
+            $modulo->user_id = 1;
+            $modulo->tipo_producto = $item->tipo_producto;
+            $modulo->precio = $item->precio;
+            
+            $modulo->save();
+        }
 
         $response = ['status' => 'success', 'msg' => 'Datos guardados exitosamente'];    
         return response()->json($response);
