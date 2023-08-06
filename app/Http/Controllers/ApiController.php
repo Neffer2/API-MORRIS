@@ -37,6 +37,7 @@ class ApiController extends Controller
                 $token = $user->createToken('morris');
                 $response['status'] = 1;
                 $response['msg'] = $token->plainTextToken;
+                $response['id'] = $user->id;
             }else{
                 $response['status'] = 0;
                 $response['msg'] = "Credenciales incorrectas.";
@@ -55,7 +56,7 @@ class ApiController extends Controller
         foreach ($data as $item){
             if (!$item->novedades){
                 $modulo = new Modulo1;
-                $modulo->user_id = 1;
+                $modulo->user_id = $item->id;
                 $modulo->marca = $item->marca;
                 $modulo->ciudad = $item->ciudad;
                 $modulo->pdv = $item->pdv;
@@ -69,7 +70,7 @@ class ApiController extends Controller
                 $modulo->save();                          
             }else {
                 $modulo = new Modulo1;
-                $modulo->user_id = 1;                
+                $modulo->user_id = $item->id;                
                 $modulo->novedades = $item->novedades;
                 $modulo->save();                          
             }
@@ -85,7 +86,7 @@ class ApiController extends Controller
         foreach ($data as $item){
             $modulo = new Modulo2;
 
-            $modulo->user_id = 1;
+            $modulo->user_id = $item->id;
             $modulo->marca = $item->marca;
             $modulo->num_abordadas = $item->num_abordadas;
             $modulo->num_ventas = $item->num_ventas;
@@ -110,7 +111,7 @@ class ApiController extends Controller
         foreach ($data as $item){
             $modulo = new Modulo3;
 
-            $modulo->user_id = 1;
+            $modulo->user_id = $item->id;
             $modulo->visibilidad = $item->visibilidad;
             $modulo->tipo_visibilidad = $item->tipo_visibilidad;
             $modulo->visibilidad_competencia = $item->visibilidad_competencia;
@@ -130,7 +131,7 @@ class ApiController extends Controller
 
         foreach ($data as $item){
             $modulo = new Modulo4;
-            $modulo->user_id = 1;
+            $modulo->user_id = $item->id;
             $modulo->presente = $item->presente;
             $modulo->LMBLUE = $item->LMBLUE;
             $modulo->LMPURPLE = $item->LMPURPLE;
@@ -181,7 +182,7 @@ class ApiController extends Controller
         foreach ($data as $item){
             $modulo = new Modulo5;
 
-            $modulo->user_id = 1;
+            $modulo->user_id = $item->id;
             $modulo->tipo_producto = $item->tipo_producto;
             $modulo->precio = $item->precio;
             
