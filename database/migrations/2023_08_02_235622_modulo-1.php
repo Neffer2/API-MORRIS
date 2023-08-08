@@ -25,6 +25,10 @@ return new class extends Migration
             $table->date('fechaVisita')->nullable();
             $table->string('estrato')->nullable();
             $table->string('barrio')->nullable();
+
+            $table->longText('foto_cierre')->nullable();
+            $table->string('latitude')->nullable();
+            $table->string('longitude')->nullable();
             $table->timestamps(); 
         });
     }

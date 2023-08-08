@@ -67,10 +67,16 @@ class ApiController extends Controller
                 $modulo->fechaVisita = $item->fechaVisita;
                 $modulo->estrato = $item->estrato;
                 $modulo->barrio = $item->barrio;
+
+                $modulo->foto_cierre = $item->foto_cierre;
+                $modulo->latitude = $item->latitude; 
+                $modulo->longitude = $item->longitude;
+
                 $modulo->save();                          
             }else {
                 $modulo = new Modulo1;
                 $modulo->user_id = $item->id;                
+                $modulo->pdv = $item->pdv;
                 $modulo->novedades = $item->novedades;
                 $modulo->save();                          
             }
