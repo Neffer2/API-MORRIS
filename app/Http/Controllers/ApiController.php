@@ -138,42 +138,30 @@ class ApiController extends Controller
         foreach ($data as $item){
             $modulo = new Modulo4;
             $modulo->user_id = $item->id;
+            $modulo->pdv = $item->pdv;
             $modulo->presente = $item->presente;
-            $modulo->LMBLUE = $item->LMBLUE;
-            $modulo->LMPURPLE = $item->LMPURPLE;
-            $modulo->presente = $item->presente;
-            $modulo->LMBLUE = $item->LMBLUE;
-            $modulo->LMPURPLE = $item->LMPURPLE; 
-            $modulo->LMRED = $item->LMRED;
+
+            $modulo->MLBROJO = $item->MLBROJO;
+            $modulo->MLBREDSELECTION = $item->MLBREDSELECTION;
+            $modulo->PIELROJA = $item->PIELROJA;
+            $modulo->CARIBE = $item->CARIBE;
+            $modulo->LMAZUL = $item->LMAZUL; 
+            $modulo->LMROJO = $item->LMROJO;
+
+            $modulo->MLBGOLD = $item->MLBGOLD;
+            $modulo->CHESTERFIELDAZUL = $item->CHESTERFIELDAZUL;
+            $modulo->CHESTERFIELDBLANCO = $item->CHESTERFIELDBLANCO;
             $modulo->LMSILVER = $item->LMSILVER;
-            $modulo->LMWARREGO = $item->LMWARREGO;
-            $modulo->LUCKYSTRIKEBLUE10 = $item->LUCKYSTRIKEBLUE10;
-            $modulo->LUCKYSTRIKEBLUE20 = $item->LUCKYSTRIKEBLUE20;
-            $modulo->LUCKYSTRIKEFEST10 = $item->LUCKYSTRIKEFEST10;
-            $modulo->LUCKYSTRIKEFEST20 = $item->LUCKYSTRIKEFEST20;
-            $modulo->LUCKYSTRIKEGIN10 = $item->LUCKYSTRIKEGIN10;
-            $modulo->LUCKYSTRIKEGIN20 = $item->LUCKYSTRIKEGIN20;
-            $modulo->LUCKYSTRIKEMOJITO10 = $item->LUCKYSTRIKEMOJITO10;
-            $modulo->LUCKYSTRIKEMOJITO20 = $item->LUCKYSTRIKEMOJITO20;
-            $modulo->ROTHMANSAZUL10 = $item->ROTHMANSAZUL10;
-            $modulo->ROTHMANSAZUL20 = $item->ROTHMANSAZUL20;
-            $modulo->ROTHMANSVERDE10 = $item->ROTHMANSVERDE10;
-            $modulo->ROTHMANSVERDE20 = $item->ROTHMANSVERDE20;
-            $modulo->ROTHMANSBLANCO10 = $item->ROTHMANSBLANCO10;
-            $modulo->ROTHMANSBLANCO20 = $item->ROTHMANSBLANCO20;
-            $modulo->ROTHMANSPURPLE10 = $item->ROTHMANSPURPLE10;
-            $modulo->ROTHMANSPURPLE20 = $item->ROTHMANSPURPLE20;
-            $modulo->STARLITE10 = $item->STARLITE10;
-            $modulo->STARLITE20 = $item->STARLITE20;
-            $modulo->MALBOROROJO = $item->MALBOROROJO;
-            $modulo->MALBOROVERDE = $item->MALBOROVERDE;
-            $modulo->MALBOROAZUL = $item->MALBOROAZUL;
-            $modulo->CHESTERFIELDPURPLE10 = $item->CHESTERFIELDPURPLE10;
-            $modulo->CHESTERFIELDPURPLE20 = $item->CHESTERFIELDPURPLE20;
-            $modulo->CHESTERFIELDGREEN10 = $item->CHESTERFIELDGREEN10;
-            $modulo->CHESTERFIELDGREEN20 = $item->CHESTERFIELDGREEN20;
-            $modulo->CHESTERFIELDBLUE10 = $item->CHESTERFIELDBLUE10;
-            $modulo->CHESTERFIELDBLUE20 = $item->CHESTERFIELDBLUE20;
+
+            $modulo->CHESTERFIELDGREEN = $item->CHESTERFIELDGREEN;
+
+            $modulo->MLBFUSION_FRUTOSROJOS = $item->MLBFUSION_FRUTOSROJOS;
+            $modulo->MLBSUMMER_SANDIA = $item->MLBSUMMER_SANDIA;
+            $modulo->MLBEXOTIC_TUTIFRUTI = $item->MLBEXOTIC_TUTIFRUTI;
+            $modulo->CHESTERFIELDPURPLE_FRUTOSROJOS = $item->CHESTERFIELDPURPLE_FRUTOSROJOS;
+            $modulo->LMPURPLE_FRUTOSROJOS = $item->LMPURPLE_FRUTOSROJOS;
+            $modulo->LMWARREGO_SANDIA = $item->LMWARREGO_SANDIA;
+            
             $modulo->save();
         }
 
@@ -189,8 +177,28 @@ class ApiController extends Controller
             $modulo = new Modulo5;
 
             $modulo->user_id = $item->id;
-            $modulo->tipo_producto = $item->tipo_producto;
-            $modulo->precio = $item->precio;
+            $modulo->pdv = $item->pdv;
+
+            $modulo->MLBROJO = $item->MLBROJO;
+            $modulo->MLBREDSELECTION = $item->MLBREDSELECTION;
+            $modulo->PIELROJA = $item->PIELROJA;
+            $modulo->CARIBE = $item->CARIBE;
+            $modulo->LMAZUL = $item->LMAZUL; 
+            $modulo->LMROJO = $item->LMROJO;
+
+            $modulo->MLBGOLD = $item->MLBGOLD;
+            $modulo->CHESTERFIELDAZUL = $item->CHESTERFIELDAZUL;
+            $modulo->CHESTERFIELDBLANCO = $item->CHESTERFIELDBLANCO;
+            $modulo->LMSILVER = $item->LMSILVER;
+
+            $modulo->CHESTERFIELDGREEN = $item->CHESTERFIELDGREEN;
+
+            $modulo->MLBFUSION_FRUTOSROJOS = $item->MLBFUSION_FRUTOSROJOS;
+            $modulo->MLBSUMMER_SANDIA = $item->MLBSUMMER_SANDIA;
+            $modulo->MLBEXOTIC_TUTIFRUTI = $item->MLBEXOTIC_TUTIFRUTI;
+            $modulo->CHESTERFIELDPURPLE_FRUTOSROJOS = $item->CHESTERFIELDPURPLE_FRUTOSROJOS;
+            $modulo->LMPURPLE_FRUTOSROJOS = $item->LMPURPLE_FRUTOSROJOS;
+            $modulo->LMWARREGO_SANDIA = $item->LMWARREGO_SANDIA;
             
             $modulo->save();
         }
