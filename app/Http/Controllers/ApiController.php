@@ -91,18 +91,51 @@ class ApiController extends Controller
 
         foreach ($data as $item){
             $modulo = new Modulo2;
-
             $modulo->user_id = $item->id;
             $modulo->marca = $item->marca;
+            $modulo->pdv = $item->pdv;
             $modulo->num_abordadas = $item->num_abordadas;
-            $modulo->num_ventas = $item->num_ventas;
-            $modulo->tipo_producto = $item->tipo_producto;
-            $modulo->num_ventas_competencia = $item->num_ventas_competencia;
-            $modulo->presentacion = $item->presentacion;
-
+            $modulo->num_ventas_1 = $item->num_ventas_1;
+            $modulo->num_ventas_2 = $item->num_ventas_2;
+            $modulo->genero_1 = $item->genero_1;
+            $modulo->genero_2 = $item->genero_2;
+            $modulo->edad_1 = $item->edad_1;
+            $modulo->edad_2 = $item->edad_2;
             $modulo->gifus = $item->gifus;
-            $modulo->genero = $item->genero;
-            $modulo->edad = $item->edad; 
+            $modulo->MLBROJO = $item->MLBROJO;
+            $modulo->MLBROJO_PRESENT = $item->MLBROJO_PRESENT;
+            $modulo->MLBREDSELECTION = $item->MLBREDSELECTION;
+            $modulo->MLBREDSELECTION_PRESENT = $item->MLBREDSELECTION_PRESENT;
+            $modulo->PIELROJA = $item->PIELROJA;
+            $modulo->PIELROJA_PRESENT = $item->PIELROJA_PRESENT;
+            $modulo->CARIBE = $item->CARIBE;
+            $modulo->CARIBE_PRESENT = $item->CARIBE_PRESENT;
+            $modulo->LMAZUL = $item->LMAZUL;
+            $modulo->LMAZUL_PRESENT = $item->LMAZUL_PRESENT;
+            $modulo->LMROJO = $item->LMROJO;
+            $modulo->LMROJO_PRESENT = $item->LMROJO_PRESENT;
+            $modulo->MLBGOLD = $item->MLBGOLD;
+            $modulo->MLBGOLD_PRESENT = $item->MLBGOLD_PRESENT;
+            $modulo->CHESTERFIELDAZUL = $item->CHESTERFIELDAZUL;
+            $modulo->CHESTERFIELDAZUL_PRESENT = $item->CHESTERFIELDAZUL_PRESENT;
+            $modulo->CHESTERFIELDBLANCO = $item->CHESTERFIELDBLANCO;
+            $modulo->CHESTERFIELDBLANCO_PRESENT = $item->CHESTERFIELDBLANCO_PRESENT;
+            $modulo->LMSILVER = $item->LMSILVER;
+            $modulo->LMSILVER_PRESENT = $item->LMSILVER_PRESENT;
+            $modulo->CHESTERFIELDGREEN = $item->CHESTERFIELDGREEN;
+            $modulo->CHESTERFIELDGREEN_PRESENT = $item->CHESTERFIELDGREEN_PRESENT;
+            $modulo->MLBFUSION_FRUTOSROJOS = $item->MLBFUSION_FRUTOSROJOS;
+            $modulo->MLBFUSION_FRUTOSROJOS_PRESENT = $item->MLBFUSION_FRUTOSROJOS_PRESENT;
+            $modulo->MLBSUMMER_SANDIA = $item->MLBSUMMER_SANDIA;
+            $modulo->MLBSUMMER_SANDIA_PRESENT = $item->MLBSUMMER_SANDIA_PRESENT;
+            $modulo->MLBEXOTIC_TUTIFRUTI = $item->MLBEXOTIC_TUTIFRUTI;
+            $modulo->MLBEXOTIC_TUTIFRUTI_PRESENT = $item->MLBEXOTIC_TUTIFRUTI_PRESENT;
+            $modulo->CHESTERFIELDPURPLE_FRUTOSROJOS = $item->CHESTERFIELDPURPLE_FRUTOSROJOS;
+            $modulo->CHESTERFIELDPURPLE_FRUTOSROJOS_PRESENT = $item->CHESTERFIELDPURPLE_FRUTOSROJOS_PRESENT;
+            $modulo->LMPURPLE_FRUTOSROJOS = $item->LMPURPLE_FRUTOSROJOS;
+            $modulo->LMPURPLE_FRUTOSROJOS_PRESENT = $item->LMPURPLE_FRUTOSROJOS_PRESENT;
+            $modulo->LMWARREGO_SANDIA = $item->LMWARREGO_SANDIA;
+            $modulo->LMWARREGO_SANDIA_PRESENT = $item->LMWARREGO_SANDIA_PRESENT;           
             $modulo->save();
         }
 
@@ -118,10 +151,12 @@ class ApiController extends Controller
             $modulo = new Modulo3;
 
             $modulo->user_id = $item->id;
+            $modulo->pdv = $item->pdv;
             $modulo->visibilidad = $item->visibilidad;
             $modulo->tipo_visibilidad = $item->tipo_visibilidad;
             $modulo->visibilidad_competencia = $item->visibilidad_competencia;
             $modulo->tipo_visibilidad_competencia = $item->tipo_visibilidad_competencia;
+            $modulo->num_ventas_competencia = $item->num_ventas_competencia;
             $modulo->foto_visibilidad_marca = $item->foto_visibilidad_marca;
             $modulo->foto_visibilidad_competencia = $item->foto_visibilidad_competencia;
             
