@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('user_id')->nullable(); 
             $table->text('pdv')->nullable();
+            $table->string('token');
             $table->timestamps();
         });
     }

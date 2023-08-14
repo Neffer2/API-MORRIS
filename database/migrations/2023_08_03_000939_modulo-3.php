@@ -15,14 +15,13 @@ return new class extends Migration
             $table->id();
             $table->string('user_id')->nullable();
             $table->text('pdv')->nullable();
-
             $table->string('visibilidad')->nullable();
             $table->string('tipo_visibilidad')->nullable();
             $table->string('visibilidad_competencia')->nullable();
             $table->string('tipo_visibilidad_competencia')->nullable();
-            $table->string('num_ventas_competencia')->nullable();
             $table->longText('foto_visibilidad_marca')->nullable();
             $table->longText('foto_visibilidad_competencia')->nullable();
+            $table->string('token');
             $table->timestamps();
         });
     }

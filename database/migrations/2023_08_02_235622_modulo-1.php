@@ -14,21 +14,21 @@ return new class extends Migration
         Schema::create('modulo-1', function (Blueprint $table) {
             $table->id();
             $table->string('user_id')->nullable();
-            $table->string('marca')->nullable();
-            $table->string('ciudad')->nullable();
             $table->text('pdv')->nullable();
-            $table->string('mes')->nullable();
+            $table->date('fechaVisita')->nullable();
             $table->string('semana')->nullable();
+            $table->string('estrato')->nullable();
+            $table->string('barrio')->nullable();
             $table->string('novedades')->nullable();
             $table->longText('selfiePDV')->nullable();
             $table->longText('foto_fachada')->nullable();       
-            $table->date('fechaVisita')->nullable();
-            $table->string('estrato')->nullable();
-            $table->string('barrio')->nullable();
 
             $table->longText('foto_cierre')->nullable();
             $table->string('latitude')->nullable();
             $table->string('longitude')->nullable();
+            
+
+            $table->string('token')->unique();
             $table->timestamps(); 
         });
     }

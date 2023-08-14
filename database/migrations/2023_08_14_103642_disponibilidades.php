@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Modulo5 extends Migration
+class Disponibilidades extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,14 @@ class Modulo5 extends Migration
      */
     public function up()
     {
-        Schema::create('modulo-5', function (Blueprint $table) {
+        Schema::create('disponibilidades', function (Blueprint $table) {
             $table->id();
             $table->string('user_id')->nullable();
-            $table->text('pdv')->nullable();    
-            $table->longText('foto_precios')->nullable();
-            $table->longText('foto_precios_comp')->nullable();
-            $table->string('token');
-            $table->timestamps();
+            $table->string('modulo_4_id')->nullable();
+            $table->string('producto')->nullable();
+            $table->string('presentacion')->nullable();
+            $table->string('stock')->nullable();
+            $table->timestamps(); 
         });
     }
 
@@ -31,6 +31,6 @@ class Modulo5 extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('modulo-5');
+        Schema::dropIfExists('disponibilidades');
     }
 }

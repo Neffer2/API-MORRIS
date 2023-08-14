@@ -13,6 +13,8 @@ use App\Models\Modulo4;
 use App\Models\Modulo5;
 use App\Models\Venta;
 use App\Models\Gifu;
+use App\Models\Disponibilidad;
+use App\Models\Shopping;
  
 class ApiController extends Controller
 {
@@ -59,27 +61,26 @@ class ApiController extends Controller
             if (!$item->novedades){
                 $modulo = new Modulo1;
                 $modulo->user_id = $item->id;
-                $modulo->marca = $item->marca;
-                $modulo->ciudad = $item->ciudad;
                 $modulo->pdv = $item->pdv;
-                $modulo->mes = $item->mes;
-                $modulo->semana = $item->semana;
-                $modulo->selfiePDV = $item->selfiePDV;
-                $modulo->foto_fachada = $item->fotoFachada;
                 $modulo->fechaVisita = $item->fechaVisita;
+                $modulo->semana = $item->semana;
                 $modulo->estrato = $item->estrato;
                 $modulo->barrio = $item->barrio;
-
+                $modulo->selfiePDV = $item->selfiePDV;
+                $modulo->foto_fachada = $item->fotoFachada;
                 $modulo->foto_cierre = $item->foto_cierre;
                 $modulo->latitude = $item->latitude; 
                 $modulo->longitude = $item->longitude;
 
+                $modulo->token = $item->token;
                 $modulo->save();                          
             }else {
                 $modulo = new Modulo1;
                 $modulo->user_id = $item->id;                
                 $modulo->pdv = $item->pdv;
                 $modulo->novedades = $item->novedades;
+
+                $modulo->token = $item->token;
                 $modulo->save();                          
             }
         }
@@ -95,6 +96,8 @@ class ApiController extends Controller
             $modulo = new Modulo2;
             $modulo->user_id = $item->id;
             $modulo->pdv = $item->pdv;
+
+            $modulo->token = $item->token;
             $modulo->save();
         }
 
@@ -137,10 +140,10 @@ class ApiController extends Controller
             $modulo->tipo_visibilidad = $item->tipo_visibilidad;
             $modulo->visibilidad_competencia = $item->visibilidad_competencia;
             $modulo->tipo_visibilidad_competencia = $item->tipo_visibilidad_competencia;
-            $modulo->num_ventas_competencia = $item->num_ventas_competencia;
             $modulo->foto_visibilidad_marca = $item->foto_visibilidad_marca;
             $modulo->foto_visibilidad_competencia = $item->foto_visibilidad_competencia;
             
+            $modulo->token = $item->token;
             $modulo->save();
         }
 
@@ -155,32 +158,21 @@ class ApiController extends Controller
             $modulo = new Modulo4;
             $modulo->user_id = $item->id;
             $modulo->pdv = $item->pdv;
-            $modulo->presente = $item->presente;
+            $modulo->presente = $item->presente;            
 
-            $modulo->MLBROJO = $item->MLBROJO;
-            $modulo->MLBREDSELECTION = $item->MLBREDSELECTION;
-            $modulo->PIELROJA = $item->PIELROJA;
-            $modulo->CARIBE = $item->CARIBE;
-            $modulo->LMAZUL = $item->LMAZUL; 
-            $modulo->LMROJO = $item->LMROJO;
-
-            $modulo->MLBGOLD = $item->MLBGOLD;
-            $modulo->CHESTERFIELDAZUL = $item->CHESTERFIELDAZUL;
-            $modulo->CHESTERFIELDBLANCO = $item->CHESTERFIELDBLANCO;
-            $modulo->LMSILVER = $item->LMSILVER;
-
-            $modulo->CHESTERFIELDGREEN = $item->CHESTERFIELDGREEN;
-
-            $modulo->MLBFUSION_FRUTOSROJOS = $item->MLBFUSION_FRUTOSROJOS;
-            $modulo->MLBSUMMER_SANDIA = $item->MLBSUMMER_SANDIA;
-            $modulo->MLBEXOTIC_TUTIFRUTI = $item->MLBEXOTIC_TUTIFRUTI;
-            $modulo->CHESTERFIELDPURPLE_FRUTOSROJOS = $item->CHESTERFIELDPURPLE_FRUTOSROJOS;
-            $modulo->LMPURPLE_FRUTOSROJOS = $item->LMPURPLE_FRUTOSROJOS;
-            $modulo->LMWARREGO_SANDIA = $item->LMWARREGO_SANDIA;
-            
+            $modulo->token = $item->token;
             $modulo->save();
         }
 
+        foreach ($data[0]->disponibilidades as $itemDispo){
+            $venta = new Disponibilidad;
+            $venta->modulo_4_id = $modulo->id;
+            $venta->user_id = $item->id;
+            $venta->producto = $itemDispo->producto;
+            $venta->presentacion = $itemDispo->presentacion;
+            $venta->stock = $itemDispo->stock; 
+            $venta->save();
+        }  
 
         $response = ['status' => 'success', 'msg' => 'Datos guardados exitosamente'];    
         return response()->json($response);
@@ -191,32 +183,35 @@ class ApiController extends Controller
 
         foreach ($data as $item){
             $modulo = new Modulo5;
-
             $modulo->user_id = $item->id;
-            $modulo->pdv = $item->pdv;
+            $modulo->pdv = $item->pdv;        
+            $modulo->foto_precios = $item->fotoPrecios;        
+            $modulo->foto_precios_comp = $item->fotoPreciosComp;        
 
-            $modulo->MLBROJO = $item->MLBROJO;
-            $modulo->MLBREDSELECTION = $item->MLBREDSELECTION;
-            $modulo->PIELROJA = $item->PIELROJA;
-            $modulo->CARIBE = $item->CARIBE;
-            $modulo->LMAZUL = $item->LMAZUL; 
-            $modulo->LMROJO = $item->LMROJO;
-
-            $modulo->MLBGOLD = $item->MLBGOLD;
-            $modulo->CHESTERFIELDAZUL = $item->CHESTERFIELDAZUL;
-            $modulo->CHESTERFIELDBLANCO = $item->CHESTERFIELDBLANCO;
-            $modulo->LMSILVER = $item->LMSILVER;
-
-            $modulo->CHESTERFIELDGREEN = $item->CHESTERFIELDGREEN;
-
-            $modulo->MLBFUSION_FRUTOSROJOS = $item->MLBFUSION_FRUTOSROJOS;
-            $modulo->MLBSUMMER_SANDIA = $item->MLBSUMMER_SANDIA;
-            $modulo->MLBEXOTIC_TUTIFRUTI = $item->MLBEXOTIC_TUTIFRUTI;
-            $modulo->CHESTERFIELDPURPLE_FRUTOSROJOS = $item->CHESTERFIELDPURPLE_FRUTOSROJOS;
-            $modulo->LMPURPLE_FRUTOSROJOS = $item->LMPURPLE_FRUTOSROJOS;
-            $modulo->LMWARREGO_SANDIA = $item->LMWARREGO_SANDIA;
-            
+            $modulo->token = $item->token;
             $modulo->save();
+        }
+
+        foreach ($data[0]->precios as $itemPrecio){
+            $shopping = new Shopping;
+            $shopping->modulo_5_id = $modulo->id;
+            $shopping->user_id = $item->id;
+            $shopping->producto = $itemPrecio->producto;
+            $shopping->presentacion = $itemPrecio->presentacion;
+            $shopping->precio = $itemPrecio->precio; 
+            $shopping->competencia = false; 
+            $shopping->save();
+        }
+
+        foreach ($data[0]->preciosComp as $itemPrecioComp){
+            $shopping = new Shopping;
+            $shopping->modulo_5_id = $modulo->id;
+            $shopping->user_id = $item->id;
+            $shopping->producto = $itemPrecioComp->producto;
+            $shopping->presentacion = $itemPrecioComp->presentacion;
+            $shopping->precio = $itemPrecioComp->precio; 
+            $shopping->competencia = true; 
+            $shopping->save();
         }
 
         $response = ['status' => 'success', 'msg' => 'Datos guardados exitosamente'];    
