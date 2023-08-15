@@ -16,12 +16,13 @@ class Ventas extends Migration
         Schema::create('ventas', function (Blueprint $table) {
             $table->id();
             $table->string('user_id')->nullable();
-            $table->string('modulo_id')->nullable();
+            $table->string('modulo_2_id')->nullable();
             $table->string('producto')->nullable();
             $table->string('presentacion')->nullable();
             $table->string('genero')->nullable();
             $table->text('edad')->nullable();
             $table->string('cantidad')->nullable();
+            $table->boolean('competencia')->nullable();
             $table->timestamps(); 
         });
     }

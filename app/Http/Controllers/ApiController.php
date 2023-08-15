@@ -90,7 +90,7 @@ class ApiController extends Controller
     }
 
     public function insertM2 (Request $request){
-        $data = json_decode($request->getContent());
+        $data = json_decode($request->getContent()); 
         
         foreach ($data as $item){
             $modulo = new Modulo2;
@@ -103,19 +103,31 @@ class ApiController extends Controller
 
         foreach ($data[0]->ventas as $itemVentas){
             $venta = new Venta;
-            $venta->modulo_id = $modulo->id;
+            $venta->modulo_2_id = $modulo->id;
             $venta->user_id = $item->id;
             $venta->producto = $itemVentas->producto;
             $venta->presentacion = $itemVentas->presentacion;
             $venta->genero = $itemVentas->genero;
             $venta->edad = $itemVentas->edad;
             $venta->cantidad = $itemVentas->cantidad;
+            $venta->competencia = false;
             $venta->save();
-        }   
+        }
+
+        foreach ($data[0]->ventasComp as $itemVentas){
+            $venta = new Venta;
+            $venta->modulo_2_id = $modulo->id;
+            $venta->user_id = $item->id;
+            $venta->producto = $itemVentas->producto;
+            $venta->presentacion = $itemVentas->presentacion;
+            $venta->cantidad = $itemVentas->cantidad;
+            $venta->competencia = true;
+            $venta->save();
+        }
 
         foreach ($data[0]->gifus as $itemGifus){
             $gifu = new Gifu;
-            $gifu->modulo_id = $modulo->id;
+            $gifu->modulo_2_id = $modulo->id;
             $gifu->user_id = $item->id;
             $gifu->gifu = $itemGifus->gifu;
             $gifu->sabor = $itemGifus->sabor;
@@ -165,13 +177,25 @@ class ApiController extends Controller
         }
 
         foreach ($data[0]->disponibilidades as $itemDispo){
-            $venta = new Disponibilidad;
-            $venta->modulo_4_id = $modulo->id;
-            $venta->user_id = $item->id;
-            $venta->producto = $itemDispo->producto;
-            $venta->presentacion = $itemDispo->presentacion;
-            $venta->stock = $itemDispo->stock; 
-            $venta->save();
+            $dispo = new Disponibilidad;
+            $dispo->modulo_4_id = $modulo->id;
+            $dispo->user_id = $item->id;
+            $dispo->producto = $itemDispo->producto;
+            $dispo->presentacion = $itemDispo->presentacion;
+            $dispo->stock = $itemDispo->stock; 
+            $dispo->competencia = false;
+            $dispo->save();
+        }  
+
+        foreach ($data[0]->disponibilidadesComp as $itemDispo){
+            $dispo = new Disponibilidad;
+            $dispo->modulo_4_id = $modulo->id;
+            $dispo->user_id = $item->id;
+            $dispo->producto = $itemDispo->producto;
+            $dispo->presentacion = $itemDispo->presentacion;
+            $dispo->stock = $itemDispo->stock; 
+            $dispo->competencia = true;
+            $dispo->save();
         }  
 
         $response = ['status' => 'success', 'msg' => 'Datos guardados exitosamente'];    
@@ -210,7 +234,7 @@ class ApiController extends Controller
             $shopping->producto = $itemPrecioComp->producto;
             $shopping->presentacion = $itemPrecioComp->presentacion;
             $shopping->precio = $itemPrecioComp->precio; 
-            $shopping->competencia = true; 
+            $shopping->competencia = true;
             $shopping->save();
         }
 

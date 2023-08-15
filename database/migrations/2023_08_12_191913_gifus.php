@@ -16,7 +16,7 @@ class Gifus extends Migration
         Schema::create('gifus', function (Blueprint $table) {
             $table->id();
             $table->string('user_id')->nullable();
-            $table->string('modulo_id')->nullable();
+            $table->string('modulo_2_id')->nullable();
             $table->string('gifu')->nullable();
             $table->string('sabor')->nullable();
             $table->string('genero_gifu')->nullable();
