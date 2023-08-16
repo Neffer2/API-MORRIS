@@ -57,6 +57,13 @@ class ApiController extends Controller
     public function insertM1 (Request $request){
         $data = json_decode($request->getContent());
 
+        $validate = Modulo1::select('token')->where('token', $data[0]->token)->first();
+
+        if (!is_null($validate)){
+            $response = ['status' => 'error', 'msg' => 'Token repetido'];    
+            return response()->json($response);
+        }
+
         foreach ($data as $item){
             if (!$item->novedades){
                 $modulo = new Modulo1;
