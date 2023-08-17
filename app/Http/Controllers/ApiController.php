@@ -109,7 +109,7 @@ class ApiController extends Controller
         }
 
         foreach ($data[0]->ventas as $itemVentas){
-            $venta = new Venta;
+            $venta = new Venta; 
             $venta->modulo_2_id = $modulo->id;
             $venta->user_id = $item->id;
             $venta->producto = $itemVentas->producto;
@@ -117,6 +117,7 @@ class ApiController extends Controller
             $venta->genero = $itemVentas->genero;
             $venta->edad = $itemVentas->edad;
             $venta->cantidad = $itemVentas->cantidad;
+            $venta->interes_inicial = $itemVentas->interesInicial;
             $venta->competencia = false;
             $venta->save();
         }
@@ -137,7 +138,6 @@ class ApiController extends Controller
             $gifu->modulo_2_id = $modulo->id;
             $gifu->user_id = $item->id;
             $gifu->gifu = $itemGifus->gifu;
-            $gifu->sabor = $itemGifus->sabor;
             $gifu->genero_gifu = $itemGifus->genero_gifu;
             $gifu->edad_gifu = $itemGifus->edad_gifu;
             $gifu->save();

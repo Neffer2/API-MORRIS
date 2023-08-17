@@ -18,7 +18,6 @@ class Gifus extends Migration
             $table->string('user_id')->nullable();
             $table->string('modulo_2_id')->nullable();
             $table->string('gifu')->nullable();
-            $table->string('sabor')->nullable();
             $table->string('genero_gifu')->nullable();
             $table->text('edad_gifu')->nullable();
             $table->timestamps(); 
