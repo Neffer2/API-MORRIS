@@ -28,7 +28,7 @@ return new class extends Migration
             $table->string('longitude')->nullable();
             
 
-            $table->string('token')->unique();
+            $table->string('token')->unique()->nullable();
             $table->timestamps(); 
         });
     }

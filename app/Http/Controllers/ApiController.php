@@ -56,7 +56,7 @@ class ApiController extends Controller
     public function insertM1 (Request $request){
         $data = json_decode($request->getContent());
 
-        $validate = Modulo1::select('token')->where('token', $data[0]->token)->first();
+        $validate = Modulo1::select('token')->where('token', $data[0]->token)->first();            
 
         if (!is_null($validate)){
             $response = ['status' => 'error', 'msg' => 'Token repetido'];    
@@ -85,7 +85,6 @@ class ApiController extends Controller
                 $modulo->user_id = $item->id;                
                 $modulo->pdv = $item->pdv;
                 $modulo->novedades = $item->novedades;
-
                 $modulo->token = $item->token;
                 $modulo->save();                          
             }
