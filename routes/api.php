@@ -28,4 +28,3 @@ Route::post('/insertM1', [ApiController::class, 'insertM1']);
 Route::post('/insertM2', [ApiController::class, 'insertM2']);
 Route::post('/insertM3', [ApiController::class, 'insertM3']);
 Route::post('/insertM4', [ApiController::class, 'insertM4']);
-Route::post('/insertM5', [ApiController::class, 'insertM5']);

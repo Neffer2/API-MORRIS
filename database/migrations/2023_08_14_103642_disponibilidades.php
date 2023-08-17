@@ -19,6 +19,7 @@ class Disponibilidades extends Migration
             $table->string('modulo_4_id')->nullable();
             $table->string('producto')->nullable();
             $table->string('presentacion')->nullable();
+            $table->string('precio')->nullable();
             $table->string('stock')->nullable();
             $table->boolean('competencia')->nullable();
             $table->timestamps(); 
