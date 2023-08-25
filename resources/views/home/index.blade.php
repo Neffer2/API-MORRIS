@@ -24,6 +24,7 @@
                             <th scope="col">Novedades</th>
                             <th scope="col">Fecha visita</th>
                             <th scope="col">Fecha cierre</th>
+                            <th scope="col">Ubicaci&oacute;n</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -35,6 +36,9 @@
                                     <td>{{ $item->novedades }}</td>
                                     <td>{{ $item->fechaVisita }}</td>
                                     <td>{{ $item->created_at }}</td>
+                                    <td>
+                                        <a href="https://www.google.com/maps/?q={{ $item->latitude }},{{ $item->longitude }}" target="_blank">Ubicaci&oacute;n</a>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>
