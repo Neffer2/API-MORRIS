@@ -13,6 +13,9 @@
             <div class="col-md-6">
                 <label for=""><h3>M&eacute;tricas</h3></label>
             </div>
+            <div class="col-md-6">
+                <a class="btn btn-primary" href="https://iglumarketingdigital.com/dashboard-pbi/" target="_blank">Coordinadores</a>
+            </div>
             <div class="col-md-12">
                 <div class="table-responsive">
                     <table class="table">
