@@ -23,7 +23,6 @@ class Ventas extends Migration
             $table->text('edad')->nullable();
             $table->string('cantidad')->nullable();
             $table->string('interes_inicial')->nullable();
-            $table->boolean('competencia')->nullable();
             $table->timestamps(); 
         });
     }

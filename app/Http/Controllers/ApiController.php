@@ -95,12 +95,14 @@ class ApiController extends Controller
     }
 
     public function insertM2 (Request $request){
+
         $data = json_decode($request->getContent()); 
         
         foreach ($data as $item){
             $modulo = new Modulo2;
             $modulo->user_id = $item->id;
             $modulo->pdv = $item->pdv;
+            $modulo->abordadas = $item->num_abordadas; 
 
             $modulo->token = $item->token;
             $modulo->save();
@@ -116,18 +118,6 @@ class ApiController extends Controller
             $venta->edad = $itemVentas->edad;
             $venta->cantidad = $itemVentas->cantidad;
             $venta->interes_inicial = $itemVentas->interesInicial;
-            $venta->competencia = false;
-            $venta->save();
-        }
-
-        foreach ($data[0]->ventasComp as $itemVentas){
-            $venta = new Venta;
-            $venta->modulo_2_id = $modulo->id;
-            $venta->user_id = $item->id;
-            $venta->producto = $itemVentas->producto;
-            $venta->presentacion = $itemVentas->presentacion;
-            $venta->cantidad = $itemVentas->cantidad;
-            $venta->competencia = true;
             $venta->save();
         }
 
