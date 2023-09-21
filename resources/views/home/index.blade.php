@@ -23,24 +23,28 @@
                           <tr>
                             <th scope="col">#</th>
                             <th scope="col">Nombre</th>
+                            <th scope="col">Ciudad</th>
                             <th scope="col">Punto</th>
-                            <th scope="col">Novedades</th>
+                            <th scope="col">Novedades</th> 
                             <th scope="col">Fecha visita</th>
                             <th scope="col">Fecha cierre</th>
-                            <th scope="col">Ubicaci&oacute;n</th>
+                            <th scope="col">Acciones</th>
                           </tr>
                         </thead>
                         <tbody>
                             @foreach ($dataModulo1 as $key => $item)
                                 <tr>
                                     <th scope="row">{{ $key+=1 }}</th>
-                                    <td>{{ $item->user_info->name }}</td>
+                                    <td>{{ $item->user_info->name }}</td> 
+                                    <td>{{ $item->user_info->ciudad }}</td> 
                                     <td>{{ $item->pdv }}</td>
                                     <td>{{ $item->novedades }}</td>
                                     <td>{{ $item->fechaVisita }}</td>
                                     <td>{{ $item->created_at }}</td>
                                     <td>
-                                        <a href="https://www.google.com/maps/?q={{ $item->latitude }},{{ $item->longitude }}" target="_blank">Ubicaci&oacute;n</a>
+                                        @if ($item->token)
+                                            <a href="{{ route('ver_mas', $item->token) }}" target="_blank">Ver mas</a>
+                                        @endif
                                     </td>
                                 </tr>
                             @endforeach

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Modulo1 extends Model
 {
-    use HasFactory;
+    use HasFactory; 
     protected $table = "modulo-1";
 
     public function user_info (){
