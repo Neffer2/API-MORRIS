@@ -158,43 +158,43 @@ class ApiController extends Controller
         return response()->json($response);
     }
 
-    public function insertM4 (Request $request){
-        $data = json_decode($request->getContent());
+    // public function insertM4 (Request $request){
+    //     $data = json_decode($request->getContent());
 
-        foreach ($data as $item){
-            $modulo = new Modulo4;
-            $modulo->user_id = $item->id;
-            $modulo->pdv = $item->pdv;
+    //     foreach ($data as $item){
+    //         $modulo = new Modulo4;
+    //         $modulo->user_id = $item->id;
+    //         $modulo->pdv = $item->pdv;
 
-            $modulo->token = $item->token;
-            $modulo->save();
-        }
+    //         $modulo->token = $item->token;
+    //         $modulo->save();
+    //     }
 
-        foreach ($data[0]->disponibilidades as $itemDispo){
-            $dispo = new Disponibilidad;
-            $dispo->modulo_4_id = $modulo->id;
-            $dispo->user_id = $item->id;
-            $dispo->producto = $itemDispo->producto;
-            $dispo->presentacion = $itemDispo->presentacion;
-            $dispo->precio = $itemDispo->precio;
-            $dispo->stock = $itemDispo->stock; 
-            $dispo->competencia = false;
-            $dispo->save(); 
-        }  
+    //     foreach ($data[0]->disponibilidades as $itemDispo){
+    //         $dispo = new Disponibilidad;
+    //         $dispo->modulo_4_id = $modulo->id;
+    //         $dispo->user_id = $item->id;
+    //         $dispo->producto = $itemDispo->producto;
+    //         $dispo->presentacion = $itemDispo->presentacion;
+    //         $dispo->precio = $itemDispo->precio;
+    //         $dispo->stock = $itemDispo->stock; 
+    //         $dispo->competencia = false;
+    //         $dispo->save(); 
+    //     }  
 
-        foreach ($data[0]->disponibilidadesComp as $itemDispo){
-            $dispo = new Disponibilidad;
-            $dispo->modulo_4_id = $modulo->id;
-            $dispo->user_id = $item->id;
-            $dispo->producto = $itemDispo->producto;
-            $dispo->presentacion = $itemDispo->presentacion;
-            $dispo->precio = $itemDispo->precio;
-            $dispo->stock = $itemDispo->stock; 
-            $dispo->competencia = true;
-            $dispo->save();
-        }  
+    //     foreach ($data[0]->disponibilidadesComp as $itemDispo){
+    //         $dispo = new Disponibilidad;
+    //         $dispo->modulo_4_id = $modulo->id;
+    //         $dispo->user_id = $item->id;
+    //         $dispo->producto = $itemDispo->producto;
+    //         $dispo->presentacion = $itemDispo->presentacion;
+    //         $dispo->precio = $itemDispo->precio;
+    //         $dispo->stock = $itemDispo->stock; 
+    //         $dispo->competencia = true;
+    //         $dispo->save();
+    //     }  
 
-        $response = ['status' => 'success', 'msg' => 'Datos guardados exitosamente'];    
-        return response()->json($response);
-    }
+    //     $response = ['status' => 'success', 'msg' => 'Datos guardados exitosamente'];    
+    //     return response()->json($response);
+    // }
 }

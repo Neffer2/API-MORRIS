@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('modulo-4', function (Blueprint $table) {
-            $table->id();
-            $table->string('user_id')->nullable();
-            $table->text('pdv')->nullable();
-            $table->string('presente')->nullable();            
-            $table->string('token');
-            $table->timestamps();
-        });
+        // Schema::create('modulo-4', function (Blueprint $table) {
+        //     $table->id();
+        //     $table->string('user_id')->nullable();
+        //     $table->text('pdv')->nullable();
+        //     $table->string('presente')->nullable();            
+        //     $table->string('token');
+        //     $table->timestamps();
+        // });
     }
 
     /**
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('modulo-4');
+        // Schema::dropIfExists('modulo-4');
     }
 };
