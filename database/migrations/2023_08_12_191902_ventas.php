@@ -23,6 +23,22 @@ class Ventas extends Migration
             $table->text('edad')->nullable();
             $table->string('cantidad')->nullable();
             $table->string('interes_inicial')->nullable();
+
+            $table->string('preferenciaMarca')->nullable();
+            $table->string('preferenciaOtroText')->nullable();
+
+            $table->string('preferenciaCompetencia')->nullable();
+            $table->string('preferenciaCompOtroText')->nullable();
+
+            $table->string('mensajeMarcaSfp')->nullable();
+            $table->string('sfpMarca')->nullable();
+
+            $table->string('mensajeMarcaCcs')->nullable();
+            $table->string('ccsMarca')->nullable();
+
+            $table->string('intervencion1')->nullable();
+            $table->string('intervencion2')->nullable();
+
             $table->timestamps(); 
         });
     }

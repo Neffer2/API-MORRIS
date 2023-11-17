@@ -13,17 +13,17 @@ class Disponibilidades extends Migration
      */
     public function up()
     {
-        Schema::create('disponibilidades', function (Blueprint $table) {
-            $table->id();
-            $table->string('user_id')->nullable();
-            $table->string('modulo_4_id')->nullable();
-            $table->string('producto')->nullable();
-            $table->string('presentacion')->nullable();
-            $table->string('precio')->nullable();
-            $table->string('stock')->nullable();
-            $table->boolean('competencia')->nullable();
-            $table->timestamps(); 
-        });
+        // Schema::create('disponibilidades', function (Blueprint $table) {
+        //     $table->id();
+        //     $table->string('user_id')->nullable();
+        //     $table->string('modulo_4_id')->nullable();
+        //     $table->string('producto')->nullable();
+        //     $table->string('presentacion')->nullable();
+        //     $table->string('precio')->nullable();
+        //     $table->string('stock')->nullable();
+        //     $table->boolean('competencia')->nullable();
+        //     $table->timestamps(); 
+        // });
     }
 
     /**

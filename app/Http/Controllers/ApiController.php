@@ -72,11 +72,12 @@ class ApiController extends Controller
                 $modulo->semana = $item->semana;
                 $modulo->estrato = $item->estrato;
                 $modulo->barrio = $item->barrio;
+                $modulo->focoAgotado = $item->focoAgotado;
                 $modulo->selfiePDV = $item->selfiePDV;
                 $modulo->foto_fachada = $item->fotoFachada;
                 $modulo->foto_cierre = $item->foto_cierre;
                 $modulo->latitude = $item->latitude; 
-                $modulo->longitude = $item->longitude;
+                $modulo->longitude = $item->longitude; 
 
                 $modulo->token = $item->token;
                 $modulo->save();                          
@@ -93,7 +94,7 @@ class ApiController extends Controller
         $response = ['status' => 'success', 'msg' => 'Datos guardados exitosamente'];    
         return response()->json($response);
     }
-
+ 
     public function insertM2 (Request $request){
 
         $data = json_decode($request->getContent()); 
@@ -118,6 +119,18 @@ class ApiController extends Controller
             $venta->edad = $itemVentas->edad;
             $venta->cantidad = $itemVentas->cantidad;
             $venta->interes_inicial = $itemVentas->interesInicial;
+
+
+            $venta->preferenciaMarca = $itemVentas->preferenciaMarca == "" ? NULL : $itemVentas->preferenciaMarca;
+            $venta->preferenciaOtroText = $itemVentas->preferenciaOtroText == "" ? NULL : $itemVentas->preferenciaOtroText;
+            $venta->preferenciaCompetencia = $itemVentas->preferenciaCompetencia == "" ? NULL : $itemVentas->preferenciaCompetencia;
+            $venta->preferenciaCompOtroText = $itemVentas->preferenciaCompOtroText == "" ? NULL : $itemVentas->preferenciaCompOtroText;
+            $venta->mensajeMarcaSfp = $itemVentas->mensajeMarcaSfp == "" ? NULL : $itemVentas->mensajeMarcaSfp;
+            $venta->sfpMarca = $itemVentas->sfpMarca == "" ? NULL : $itemVentas->sfpMarca;
+            $venta->mensajeMarcaCcs = $itemVentas->mensajeMarcaCcs == "" ? NULL : $itemVentas->mensajeMarcaCcs;
+            $venta->ccsMarca = $itemVentas->ccsMarca == "" ? NULL : $itemVentas->ccsMarca;
+            $venta->intervencion1 = $itemVentas->intervencion1 == "" ? NULL : $itemVentas->intervencion1;
+            $venta->intervencion2 = $itemVentas->intervencion2 == "" ? NULL : $itemVentas->intervencion2;
             $venta->save();
         }
 
@@ -137,6 +150,7 @@ class ApiController extends Controller
 
     public function insertM3 (Request $request){
         $data = json_decode($request->getContent());
+
 
         foreach ($data as $item){
             $modulo = new Modulo3;

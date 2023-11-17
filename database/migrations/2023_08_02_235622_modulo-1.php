@@ -19,9 +19,10 @@ return new class extends Migration
             $table->string('semana')->nullable();
             $table->string('estrato')->nullable();
             $table->string('barrio')->nullable();
+            $table->string('focoAgotado')->nullable();
             $table->string('novedades')->nullable();
             $table->longText('selfiePDV')->nullable();
-            $table->longText('foto_fachada')->nullable();       
+            $table->longText('foto_fachada')->nullable();  
 
             $table->longText('foto_cierre')->nullable();
             $table->string('latitude')->nullable();
