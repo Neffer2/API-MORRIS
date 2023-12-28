@@ -94,8 +94,8 @@
                 </table>
             </div>
         </div>
-        <hr>
-        <div class="col-md-12 p-0 my-2">
+        {{-- <hr> --}}
+        {{-- <div class="col-md-12 p-0 my-2">
             <h5>
                 <b>MODULO DISPONIBILIDA DE PRODUCTO:</b>
             </h5> 
@@ -156,7 +156,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
         <hr>
         <div class="col-md-12 p-0 my-2">
             <h5>
@@ -175,7 +175,7 @@
                                 <th>Presentaci&oacute;n</th>
                                 <th>G&eacute;nero</th>
                                 <th>Edad</th>
-                                <th>Cantidad</th>
+                                <th>Cantidad</th> 
                                 <th>Inter&eacute;s inicial</th>
                             </tr>
                             @foreach ($dataModulo2->ventas as $venta)

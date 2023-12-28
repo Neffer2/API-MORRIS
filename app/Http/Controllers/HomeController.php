@@ -23,13 +23,13 @@ class HomeController extends Controller
         $dataModulo1 = Modulo1::where('token', $token)->first();
         $dataModulo2 = Modulo2::where('token', $token)->first();
         $dataModulo3 = Modulo3::where('token', $token)->first();
-        $dataModulo4 = Modulo4::where('token', $token)->first();
+        // $dataModulo4 = Modulo4::where('token', $token)->first();
         
         return view('home.ver_mas', [
             'dataModulo1' => $dataModulo1,
             'dataModulo2' => $dataModulo2,
             'dataModulo3' => $dataModulo3,
-            'dataModulo4' => $dataModulo4,
+            // 'dataModulo4' => $dataModulo4,
         ]);
     }
 }
