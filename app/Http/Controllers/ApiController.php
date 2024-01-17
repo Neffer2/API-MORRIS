@@ -69,7 +69,7 @@ class ApiController extends Controller
                 $modulo->user_id = $item->id;
                 $modulo->pdv = $item->pdv;
                 $modulo->fechaVisita = $item->fechaVisita;
-                $modulo->semana = $item->semana;
+                // $modulo->semana = $item->semana;
                 $modulo->estrato = $item->estrato;
                 $modulo->barrio = $item->barrio;
                 $modulo->focoAgotado = $item->focoAgotado;
